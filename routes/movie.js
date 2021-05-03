@@ -63,6 +63,8 @@ router.post('/regist', function(req, res) {
                 });
             }
         });
+
+        conn.release();
     });
 });
 
@@ -115,6 +117,8 @@ router.post('/:id/modify', function(req, res) {
                 });
             }
         });
+
+        conn.release();
     });
 });
 
@@ -130,6 +134,8 @@ router.post('/:id/remove', function(req, res) {
                 res.redirect('/movie/list');
             }
         });
+
+        conn.release();
     });
 });
 
