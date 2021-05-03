@@ -1,0 +1,38 @@
+--------------------------------
+1. MySQL 설치
+--------------------------------
+	XAMPP 권장
+	
+	https://www.apachefriends.org/download.html
+	
+	XAMPP Control Panel 실행 후, MySQL Start	
+	Shell 실행
+	
+--------------------------------
+2. DB 생성
+--------------------------------
+	$ mysql -u root -p
+	$ create database temp
+	
+	SQL 클라이언트 툴을 통해 접속
+	
+	host: "localhost",
+	user: "root",
+	password: "",
+	database: "temp"
+	
+--------------------------------
+3. 테이블 생성
+--------------------------------
+    CREATE TABLE movie (
+        id int auto_increment NOT NULL,
+        title varchar(255) NULL,
+        `type` varchar(100) NULL,
+        grade DOUBLE NULL,
+        PRIMARY KEY (id)
+    );
+
+    insert into movie (title, type, grade) values ('어벤져스', '액션', 8.8);
+    insert into movie (title, type, grade) values ('어벤져스: 에이지 오브 울트론', '액션', 8.59);
+    insert into movie (title, type, grade) values ('어벤져스: 인피니티 워', '액션', 9.08);
+    insert into movie (title, type, grade) values ('어벤져스: 엔드게임', '액션', 9.49);

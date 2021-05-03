@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추가</title>
+</head>
+<body>
+
+    <form action="/movie/<%= movie.id %>/modify" method="post" id="frm">
+        <div><input type="text" name="title" placeholder="제목" value="<%= movie.title %>" /></div>
+        <div><input type="text" name="type" placeholder="장르" value="<%= movie.type %>" /></div>
+        <div><input type="number" step="0.01" name="grade" placeholder="평점" value="<%= movie.grade %>" /></div>
+        <input type="button" value="수정" onclick="fnSubmit();" />
+    </form>
+
+    <ul>
+        <li><a href="/movie/list">리스트</a></li>
+    </ul>
+
+    <script>
+        window.onload = function() {
+            const msg = "<%= msg %>";
+
+            if ( msg != '' ) {
+                alert('이미 등록된 제목입니다.');
+                return false;
+            }
+        };
+
+        function fnSubmit() {
+            let title = document.querySelector('input[name="title"]').value;
+            let type = document.querySelector('input[name="type"]').value;
+            let grade = document.querySelector('input[name="grade"]').value;
+
+            if ( !title.trim() ) {
+                alert('제목을 입력해 주세요.');
+                return false;
+            }
+
+            if ( !type.trim() ) {
+                alert('장르를 입력해 주세요.');
+                return false;
+            }
+
+            if ( !grade.trim() ) {
+                alert('평점을 입력해 주세요.');
+                return false;
+            }
+
+            if ( confirm('수정 하시겠습니까?') ) {
+                document.querySelector('#frm').submit();
+            }
+        };
+    </script>
+
+</body>
+</html>

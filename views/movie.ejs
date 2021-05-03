@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상세</title>
+</head>
+<body>
+    <article>
+        <h2><%= movie.title %></h2>
+        <div>장르 : <%= movie.type %></div>
+        <div>평점 : <%= movie.grade %></div>
+    </article>
+
+    <ul>
+        <li><a href="/movie/list">리스트</a></li>
+        <li><a href="/movie/<%= movie.id %>/modify">수정</a></li>
+        <li><a href="javascript:void(0);" onclick="fnRemove();">삭제</a></li>
+    </ul>
+
+    <form action="/movie/<%= movie.id %>/remove" method="post" id="frm">
+
+    </form>
+
+    <script>
+        function fnRemove() {
+            document.querySelector('#frm').submit();
+        };
+    </script>
+
+</body>
+</html>
